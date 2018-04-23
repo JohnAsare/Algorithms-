@@ -10,43 +10,40 @@ def merge_sort(alist):
 
     if len(alist) > 1:
         mid = len(alist)//2
-        lefthand = alist[:mid]
-        righthand = alist[mid:]
+        left_side_of_the_list = alist[:mid]
+        right_side_of_the_list = alist[mid:]
 
-        merge_sort(lefthand)
-        merge_sort(righthand)
+        merge_sort(left_side_of_the_list)
+        merge_sort(right_side_of_the_list)
 
         i = 0
         j = 0
         k = 0
 
-        while len(lefthand) < i and len(righthand) < j:
-            if lefthand[i] < righthand[j]:
-                alist[k] = lefthand[i]
+        while i < len(left_side_of_the_list) and j < len(right_side_of_the_list):
+            if left_side_of_the_list[i] < right_side_of_the_list[j]:
+                alist[k] = left_side_of_the_list[i]
                 i = i + 1
-
             else:
-                alist[k] = righthand[j]
+                alist[k] = right_side_of_the_list[j]
                 j = j + 1
             k = k + 1
 
-        while len(lefthand) < i:
-            lefthand[i] = alist[k]
+        while i < len(left_side_of_the_list):
+            alist[k] = left_side_of_the_list[i]
             i = i + 1
             k = k + 1
 
-        while len(righthand) < j:
-            righthand[j] = alist[k]
+        while j < len(right_side_of_the_list):
+            alist[k] = right_side_of_the_list[j]
             j = j + 1
             k = k + 1
-
-        print(" ..... ")
+print(" ...... ")
 
 
 alist = [54,26,93,17,77,31,44,55,20]
-print(merge_sort(alist))
-
-
+merge_sort(alist)
+print(alist)
 
 
 
