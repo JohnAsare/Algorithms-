@@ -20,13 +20,35 @@ def merge_sort(alist):
         j = 0
         k = 0
 
-        while i < len(lefthand) and j < len(righthand):
-            if lefthand[i] < alist[k]:
+        while len(lefthand) < i and len(righthand) < j:
+            if lefthand[i] < righthand[j]:
                 alist[k] = lefthand[i]
                 i = i + 1
 
             else:
-                righthand[j] = alist[k]
+                alist[k] = righthand[j]
+                j = j + 1
             k = k + 1
+
+        while len(lefthand) < i:
+            lefthand[i] = alist[k]
+            i = i + 1
+            k = k + 1
+
+        while len(righthand) < j:
+            righthand[j] = alist[k]
+            j = j + 1
+            k = k + 1
+
+        print(" ..... ")
+
+
+alist = [54,26,93,17,77,31,44,55,20]
+print(merge_sort(alist))
+
+
+
+
+
 
 
